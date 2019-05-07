@@ -11,7 +11,6 @@ namespace PacManChallenge
     {
         static void Main(string[] args)
         {
-            MazeObject mazeObject = new MazeObject();
             MazeObjectRepository mazeRepo = new MazeObjectRepository();
             Dictionary<string, int> MazeObject = mazeRepo.GetDictionary();
 
@@ -41,7 +40,6 @@ namespace PacManChallenge
 
             double pacPoints = 5000;
             double ghostCount = 0;
-            int bonusLives = 0;
             int lives = 3;
 
             Console.WriteLine("You have 3 lives and 5000 points. Would you like to play? y/n");

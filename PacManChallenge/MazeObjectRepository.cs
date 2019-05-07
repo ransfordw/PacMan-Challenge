@@ -8,16 +8,16 @@ namespace PacManChallenge
 {
     public class MazeObjectRepository
     {
-        private Dictionary<string, int> MazeObject = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> _mazeObjects = new Dictionary<string, int>();
 
         public void AddMazeObjectToDictionary (MazeObject mazeObject)
         {
-            MazeObject.Add(mazeObject.ObjectName, mazeObject.Points);
+            _mazeObjects.Add(mazeObject.ObjectName, mazeObject.Points);
         }
 
         public Dictionary<string, int> GetDictionary()
         {
-            return MazeObject;
+            return _mazeObjects;
         }
     }
 }
