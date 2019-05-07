@@ -11,32 +11,11 @@ namespace PacManChallenge
     {
         static void Main(string[] args)
         {
-            MazeObjectRepository mazeRepo = new MazeObjectRepository();
-            Dictionary<string, int> MazeObject = mazeRepo.GetDictionary();
+            MazeObjectRepository _mazeRepo = new MazeObjectRepository();
+            Dictionary<string, int> MazeObject = _mazeRepo.GetDictionary();
 
-            MazeObject dot = new MazeObject("Dot", 10);
-            MazeObject ghostVul = new MazeObject("VulnerableGhost", 200);
-            MazeObject cherry = new MazeObject("Cherry", 100);
-            MazeObject strawberry = new MazeObject("Strawberry", 300);
-            MazeObject orange = new MazeObject("Orange", 500);
-            MazeObject apple = new MazeObject("Apple", 700);
-            MazeObject melon = new MazeObject("Melon", 1000);
-            MazeObject galaxian = new MazeObject("Galaxian", 2000);
-            MazeObject bell = new MazeObject("Bell", 3000);
-            MazeObject key = new MazeObject("Key", 5000);
-            MazeObject death = new MazeObject("InvincibleGhost", 0);
-
-            mazeRepo.AddMazeObjectToDictionary(dot);
-            mazeRepo.AddMazeObjectToDictionary(ghostVul);
-            mazeRepo.AddMazeObjectToDictionary(cherry);
-            mazeRepo.AddMazeObjectToDictionary(strawberry);
-            mazeRepo.AddMazeObjectToDictionary(orange);
-            mazeRepo.AddMazeObjectToDictionary(apple);
-            mazeRepo.AddMazeObjectToDictionary(melon);
-            mazeRepo.AddMazeObjectToDictionary(galaxian);
-            mazeRepo.AddMazeObjectToDictionary(bell);
-            mazeRepo.AddMazeObjectToDictionary(key);
-            mazeRepo.AddMazeObjectToDictionary(death);
+            var mazeObjects = SeedMazeDictionary();
+            _mazeRepo.AddMazeObjectsToDictionary(mazeObjects);
 
             double pacPoints = 5000;
             double ghostCount = 0;
@@ -71,6 +50,24 @@ namespace PacManChallenge
                 Console.WriteLine("You are dead.");
             Console.WriteLine($"Total Points:{pacPoints}, Total Lives: {lives}");
             Console.ReadLine();
+        }
+
+        private static List<MazeObject> SeedMazeDictionary()
+        {
+            MazeObject dot = new MazeObject("Dot", 10);
+            MazeObject ghostVul = new MazeObject("VulnerableGhost", 200);
+            MazeObject cherry = new MazeObject("Cherry", 100);
+            MazeObject strawberry = new MazeObject("Strawberry", 300);
+            MazeObject orange = new MazeObject("Orange", 500);
+            MazeObject apple = new MazeObject("Apple", 700);
+            MazeObject melon = new MazeObject("Melon", 1000);
+            MazeObject galaxian = new MazeObject("Galaxian", 2000);
+            MazeObject bell = new MazeObject("Bell", 3000);
+            MazeObject key = new MazeObject("Key", 5000);
+            MazeObject death = new MazeObject("InvincibleGhost", 0);
+
+            var mazeObjects = new List<MazeObject>() { dot, ghostVul, cherry, strawberry, orange, apple, melon, galaxian, bell, key, death };
+            return mazeObjects;
         }
     }
 }
