@@ -12,7 +12,7 @@ namespace PacManChallenge
         static void Main(string[] args)
         {
             MazeObjectRepository _mazeRepo = new MazeObjectRepository();
-            Dictionary<string, int> MazeObject = _mazeRepo.GetDictionary();
+            Dictionary<string, int> _mazeObjectDictionary = _mazeRepo.GetDictionary();
 
             var mazeObjects = SeedMazeDictionary();
             _mazeRepo.AddMazeObjectsToDictionary(mazeObjects);
@@ -30,7 +30,7 @@ namespace PacManChallenge
             {
                 foreach (var word in words)
                 {
-                    double points = MazeObject[word];
+                    double points = _mazeObjectDictionary[word];
                     if (word == "VulnerableGhost")
                     {
                         pacPoints += (points * (Math.Pow(2, ghostCount)));
